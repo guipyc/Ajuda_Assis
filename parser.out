@@ -1,0 +1,111 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ASPAS
+    ASPAS_SIMPLES
+    COMENTARIO_MULTILINHA
+    DECREMENTO
+    E_LOGICO
+    INCREMENTO
+    NEGACAO_LOGICA
+    OPERADOR_COMPARACAO
+    OU_LOGICO
+    PONTO
+    PRINT_KEYWORD
+    SEPARATOR
+    SETA
+    VIRGULA
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> declarations
+Rule 2     declarations -> declarations declaration
+Rule 3     declarations -> empty
+Rule 4     declaration -> variable_declaration
+Rule 5     declaration -> function_declaration
+Rule 6     declaration -> comment
+Rule 7     declaration -> structure_declaration
+Rule 8     declaration -> control_structure
+Rule 9     variable_declaration -> DATATYPE IDENTIFIER ASSIGNMENT_OPERATOR expression PONTO_E_VIRGULA
+Rule 10    variable_declaration -> DATATYPE IDENTIFIER PONTO_E_VIRGULA
+Rule 11    function_declaration -> DATATYPE IDENTIFIER PAREN PAREN block
+Rule 12    block -> BRACE declarations BRACE
+Rule 13    expression -> INTEGER_VALUE
+Rule 14    expression -> FLOAT_VALUE
+Rule 15    expression -> CHAR_VALUE
+Rule 16    expression -> STRING_VALUE
+Rule 17    expression -> BOOLEAN_VALUE
+Rule 18    expression -> IDENTIFIER
+Rule 19    expression -> expression ARITHMETIC_OPERATOR expression
+Rule 20    comment -> COMMENT
+Rule 21    empty -> <empty>
+Rule 22    control_structure -> if_statement
+Rule 23    control_structure -> while_loop
+Rule 24    control_structure -> for_loop
+Rule 25    control_structure -> switch_statement
+Rule 26    if_statement -> PALAVRA_RESERVADA PAREN expression PAREN block
+Rule 27    if_statement -> PALAVRA_RESERVADA PAREN expression PAREN block PALAVRA_RESERVADA block
+Rule 28    if_statement -> PALAVRA_RESERVADA PAREN expression PAREN block PALAVRA_RESERVADA block PALAVRA_RESERVADA block
+Rule 29    while_loop -> PALAVRA_RESERVADA PAREN expression PAREN block
+Rule 30    for_loop -> PALAVRA_RESERVADA PAREN expression PONTO_E_VIRGULA expression PONTO_E_VIRGULA expression PAREN block
+Rule 31    switch_statement -> PALAVRA_RESERVADA PAREN expression PAREN BRACE case_statements BRACE
+Rule 32    case_statements -> case_statement
+Rule 33    case_statements -> case_statement case_statements
+Rule 34    case_statement -> PALAVRA_RESERVADA expression SIMBOLO_ESPECIAL block
+Rule 35    case_statement -> PALAVRA_RESERVADA expression SIMBOLO_ESPECIAL block case_statement
+
+Terminals, with rules where they appear
+
+ARITHMETIC_OPERATOR  : 19
+ASPAS                : 
+ASPAS_SIMPLES        : 
+ASSIGNMENT_OPERATOR  : 9
+BOOLEAN_VALUE        : 17
+BRACE                : 12 12 31 31
+CHAR_VALUE           : 15
+COMENTARIO_MULTILINHA : 
+COMMENT              : 20
+DATATYPE             : 9 10 11
+DECREMENTO           : 
+E_LOGICO             : 
+FLOAT_VALUE          : 14
+IDENTIFIER           : 9 10 11 18
+INCREMENTO           : 
+INTEGER_VALUE        : 13
+NEGACAO_LOGICA       : 
+OPERADOR_COMPARACAO  : 
+OU_LOGICO            : 
+PAREN                : 11 11 26 26 27 27 28 28 29 29 30 30 31 31
+PONTO                : 
+PONTO_E_VIRGULA      : 9 10 30 30
+PRINT_KEYWORD        : 
+SEPARATOR            : 
+SETA                 : 
+STRING_VALUE         : 16
+VIRGULA              : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+PALAVRA_RESERVADA    : 26 27 27 28 28 28 29 30 31 34 35
+SIMBOLO_ESPECIAL     : 34 35
+block                : 11 26 27 27 28 28 28 29 30 34 35
+case_statement       : 32 33 35
+case_statements      : 31 33
+comment              : 6
+control_structure    : 8
+declaration          : 2
+declarations         : 1 2 12
+empty                : 3
+expression           : 9 19 19 26 27 28 29 30 30 30 31 34 35
+for_loop             : 24
+function_declaration : 5
+if_statement         : 22
+program              : 0
+structure_declaration : 7
+switch_statement     : 25
+variable_declaration : 4
+while_loop           : 23
+
